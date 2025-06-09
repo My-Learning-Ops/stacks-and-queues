@@ -58,6 +58,18 @@ public class Queue<T> {
         throw new IllegalStateException("Queue Underflow: No items can be dequeued from the queue, its empty!");
     }
 
+    // Returns a string representation of the queue
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        Node<T> current = first;
+        while (current != null) {
+            sb.append(current.value).append(" ");
+            current = current.next;
+        }
+        return sb.toString().trim();
+    }
+
 
 
 }
