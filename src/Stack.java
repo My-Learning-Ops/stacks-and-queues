@@ -22,6 +22,7 @@ public class Stack<T> {
     }
 
     private Node<T> top;
+    private int size = 0;
 
     // Constructs an empty stack
     public Stack() {
@@ -33,9 +34,15 @@ public class Stack<T> {
         return top == null;
     }
 
+    // Returns the size of the stack
+    public int size() {
+        return size;
+    }
+
     // Pushes a new node to the top of the stack
     public void push(T item) {
         top = new Node<T>(item, top);
+        size++;
     }
 
     // Pops the top node from the stack, returns its value
@@ -44,6 +51,7 @@ public class Stack<T> {
         if (!isEmpty()) {
             T temp = top.value;
             top = top.next;
+            size--;
             return temp;
         }
         throw new IllegalStateException("Stack Underflow: No items can be popped from the stack, its empty!");
