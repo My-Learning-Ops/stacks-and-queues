@@ -28,7 +28,17 @@ public class Stack<T> {
         top = null;
     }
 
-    
+    // Checks if the stack is empty by checking if the top node is null
+    public boolean isEmpty() {
+        return top == null;
+    }
+
+    // Pushes a new node to the top of the stack
+    public void push(T item) {
+        top = new Node<T>(item, top);
+    }
+
+
 
 
 
