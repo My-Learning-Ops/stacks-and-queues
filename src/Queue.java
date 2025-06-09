@@ -1,9 +1,4 @@
 
-
-
-
-
-
 // A generic implementation of a queue data structure backed by a linked list
 public class Queue<T> {
 
@@ -18,7 +13,6 @@ public class Queue<T> {
             next = n;
         }
     }
-
 
     private Node<T> first = null;
     private Node<T> last = null;
@@ -69,7 +63,5 @@ public class Queue<T> {
         }
         return sb.toString().trim();
     }
-
-
 
 }
