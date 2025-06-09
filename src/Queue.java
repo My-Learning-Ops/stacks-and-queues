@@ -47,13 +47,16 @@ public class Queue<T> {
         count++;
     }
 
-
-
-
-
-
-
-
+    // Dequeues a node from the front of the queue
+    public T dequeue() throws IllegalStateException {
+        if (first != null) {
+            T temp = first.value;
+            first = first.next;
+            count--;
+            return temp;
+        }
+        throw new IllegalStateException("Queue Underflow: No items can be dequeued from the queue, its empty!");
+    }
 
 
 
