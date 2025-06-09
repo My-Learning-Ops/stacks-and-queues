@@ -33,8 +33,18 @@ public class Queue<T> {
     // Checks if the queue is empty
     public boolean isEmpty() { return count == 0; }
 
+    // Queues a new node to the end of the queue
     public void enqueue(T item) {
-        
+        // If queue is empty, create and assign the first node
+        if (first == null) {
+            first = new Node<T>(item, null);
+            last = first;
+        // If queue isnt empty, create a new node and link to the last
+        } else {
+            last.next = new Node<T>(item, null);
+            last = last.next;
+        }
+        count++;
     }
 
 
