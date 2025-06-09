@@ -21,8 +21,26 @@ public class PriorityQueue<T> {
     Node<T> last = null;
     private int count = 0;
 
-    public void enqueue(T item, int priority) {
+    // Returns the length of the queue
+    public int length() { return count; }
 
+    // Peeks at the value of the first node in the queue
+    public T peek() { return first.value; }
+
+    // Checks if the queue is empty
+    public boolean isEmpty() { return count == 0; }
+
+    public void enqueue(T item, int priority) {
+    }
+
+     public T dequeue() throws IllegalStateException {
+        if (first != null) {
+            T temp = first.value;
+            first = first.next;
+            count--;
+            return temp;
+        }
+        throw new IllegalStateException("Queue Underflow: No items can be dequeued from the queue, its empty!");
     }
 
 
