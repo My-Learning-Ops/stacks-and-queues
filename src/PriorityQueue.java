@@ -30,7 +30,29 @@ public class PriorityQueue<T> {
     // Checks if the queue is empty
     public boolean isEmpty() { return count == 0; }
 
+    // Enqueues a new node into the priority queue based on its priority
+    // Insertion sort based approach
     public void enqueue(T item, int priority) {
+         count++;
+        if (first == null) {
+            first = new Node<T>(item, priority, null);
+            last = first;
+        } else {
+            Node<T> previous = null;
+            for (Node<T> current = first; current != null; current = current.next) {
+                if (priority < current.priority) {
+                    if (previous == null) {
+                        first = new Node<T>(item, priority, first);
+                    } else {
+                        previous.next = new Node<T>(item, priority, current);
+                    }
+                    return;
+                }
+                previous = current;
+            }
+            last.next = new Node<T>(item, priority, null);
+            last = last.next;
+        }
     }
 
      public T dequeue() throws IllegalStateException {
